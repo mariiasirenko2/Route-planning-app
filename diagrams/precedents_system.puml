@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Гість" as Guest
+actor "Аутентифікований користувач" as AuthenticatedUser
+rectangle "Додаток для прокладання маршрутів" {
+  Guest -- (Реєстрація)
+  Guest -- (Авторизація)
+  Guest -- (Генерація та Персоналізація Маршруту)
+  Guest -- (Збереження та Управління Маршрутами)
+  Guest -- (Відображення Інформації про Маршрут)
+
+  AuthenticatedUser -- (Генерація та Персоналізація Маршруту)
+  AuthenticatedUser -- (Збереження та Управління Маршрутами)
+  AuthenticatedUser -- (Відображення Інформації про Маршрут)
+  AuthenticatedUser -- (Звітність та Подорожі)
+  AuthenticatedUser -- (Редагування профілю)
+
+  (Генерація та Персоналізація Маршруту) --> (Скачування даних з API або БД)
+  (Відображення Інформації про Маршрут) --> (Скачування даних з API або БД)
+}
+@enduml
